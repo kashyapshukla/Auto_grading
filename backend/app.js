@@ -50,7 +50,7 @@ app.post("/register", async(req,res) =>{
            lname,
            email,
            password : encryptedPassword,
-           admin_id: null,
+        
     })
     res.send({status:"ok"});
     }catch(error) {
