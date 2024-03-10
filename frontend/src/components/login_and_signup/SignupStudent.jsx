@@ -15,7 +15,7 @@ function SignupStudent() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const { fname, lname, email, password } = state
-    console.log(email, password)
+    console.log("vvvv",fname,email, password)
 
     fetch('http://localhost:5005/register', {
       method: 'POST',
@@ -34,8 +34,10 @@ function SignupStudent() {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.status === 'ok') {
-          setState({ ...state, isLoggedIn: true, userId: data.data._id })
+        console.log(data.status)
+        if ( data.status=== 'ok') {
+          console.log("ok")
+          // setState({ ...state, isLoggedIn: true, userId: data.data._id })
           // nv(`/users_edit_or_new/${data.data._id}`);
         }
       })

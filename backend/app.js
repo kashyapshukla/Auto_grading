@@ -41,19 +41,36 @@ app.post("/register", async(req,res) =>{
     const {fname,lname, email, password}=req.body;
     const encryptedPassword=await bcrypt.hash(password,10);
     try{
-        const oldUser= await User.findOne({email});
+        const oldUser= await Student.findOne({email});
         if(oldUser){
            return res.json({error:"User Exists"});
         }
-        await User.create({
+        await Student.create({
            fname,
            lname,
            email,
            password : encryptedPassword,
-        
-    })
+         })
     res.send({status:"ok"});
+
     }catch(error) {
     res.send({status:"error"});
     }
+});
+
+app.post("/login-user", async(req,res)=>{
+    const {email, password}= req.body;
+    const user= await Student.findOne({email});
+    if(!user){
+        return res.json({error:"User not found"});
+     }
+     if(await bcrypt.compare(password, user.password)){
+        const token=jwt.sign({}, JWT_SECRET);
+        if(res.status(200)){
+            return res.json({ status:"ok" , data: user});
+        }else{
+            return res.json({error:"error"});
+        }
+     }
+     res.json({status:"error", error:"Invalid Password"});
 });

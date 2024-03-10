@@ -33,6 +33,7 @@ function LoginStudent() {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 'ok') {
+          console.log("ok")
           setState({ ...state, isLoggedIn: true, userId: data.data._id })
           // nv(`/users_edit_or_new/${data.data._id}`);
         }
