@@ -44,7 +44,7 @@ function SignupStudent() {
   }
 
   return (
-    <Wrapper>
+    <Wrapper >
       <form onSubmit={handleSubmit} className='form'>
         <h4 className='login'>Sign up</h4>
         <div className='form-row'>

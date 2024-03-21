@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LoginStudent from './components/login_and_signup/LoginStudent'
 import ErrorPage from './components/Error/ErrorPage'
 import SignupStudent from './components/login_and_signup/SignupStudent'
-
+import Upload from './components/Upload/upload'
 const routes = createBrowserRouter([
   {
     path: '/',
@@ -21,6 +21,10 @@ const routes = createBrowserRouter([
       {
         path: 'log-in',
         element: <LoginStudent />,
+      },
+      {
+        path: 'upload/',
+        element: <Upload/>,
       },
     ],
   },

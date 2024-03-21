@@ -1,4 +1,7 @@
+
+
 const express= require("express");
+
 const app= express();
 const mongoose= require("mongoose");
 app.use(express.json());
@@ -33,7 +36,10 @@ app.post("/post", async(req,res)=>{
     }
 });
 
+
+
 require('./student');
+require('./upload')
 const Student=mongoose.model("StudentInfo");
 
 app.post("/register", async(req,res) =>{
@@ -74,3 +80,26 @@ app.post("/login-user", async(req,res)=>{
      }
      res.json({status:"error", error:"Invalid Password"});
 });
+
+
+const Upload= mongoose.model("UploadInfo");
+
+app.post('/save-newfeeling', async (req, res) => {
+    const { userId,Question,Answer} = req.body;
+  
+    try {
+        
+
+      const newUpload = new Uplaod({
+        user_id: userId,
+        Question,
+        Answer,
+      });
+  
+      await newFeeling.save();
+      res.status(200).json({ message: 'Upload saved successfully', data:newFeeling });
+    } 
+    catch (error) {
+      res.status(500).json({ message: 'Upload saving feeling', error });
+    }
+  });

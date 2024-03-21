@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 function LoginPage() {
   return (
-    <Wrapper>
+    <Wrapper >
       <nav>
         <h2 className='logo'>Code Grader</h2>
       </nav>

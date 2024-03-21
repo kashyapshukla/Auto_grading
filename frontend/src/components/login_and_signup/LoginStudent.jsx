@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 
 import Wrapper from '../../assets/wrappers/RegisterAndLoginPage'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate} from 'react-router-dom'
+import Upload from '../Upload/upload'
+
+
 
 function LoginStudent() {
   const [state, setState] = useState({
@@ -10,7 +13,8 @@ function LoginStudent() {
     isLoggedIn: false,
     userId: '0',
   })
-  // const nv = useNavigate();
+  const nv = useNavigate();
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -33,15 +37,17 @@ function LoginStudent() {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 'ok') {
+         
+        
           console.log("ok")
           setState({ ...state, isLoggedIn: true, userId: data.data._id })
-          // nv(`/users_edit_or_new/${data.data._id}`);
+         nv(`/upload/`);
         }
       })
   }
 
   return (
-    <Wrapper>
+    <Wrapper >
       <form onSubmit={handleSubmit} className='form'>
         <h4>Login</h4>
         <div className='form-row'>
