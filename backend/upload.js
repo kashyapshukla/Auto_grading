@@ -5,8 +5,8 @@ const UploadDetailsSchema= new mongoose.Schema(
         
         student_id: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Student',
-            required: true
+            ref: 'StudentInfo',
+      
           },
         question:{
             type:String,

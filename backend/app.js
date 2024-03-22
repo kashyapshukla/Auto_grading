@@ -39,7 +39,7 @@ app.post("/post", async(req,res)=>{
 
 
 require('./student');
-require('./upload')
+require('./upload');
 const Student=mongoose.model("StudentInfo");
 
 app.post("/register", async(req,res) =>{
@@ -84,22 +84,19 @@ app.post("/login-user", async(req,res)=>{
 
 const Upload= mongoose.model("UploadInfo");
 
-app.post('/save-newfeeling', async (req, res) => {
-    const { userId,Question,Answer} = req.body;
-  
+app.post('/savenewupload', async (req, res) => {
+    const { student_Id,Question,Answer} = req.body;
     try {
-        
-
-      const newUpload = new Uplaod({
-        user_id: userId,
-        Question,
-        Answer,
-      });
+        await Upload.create({
+            student_Id,
+            Question,
+            Answer,    
+          })
   
-      await newFeeling.save();
-      res.status(200).json({ message: 'Upload saved successfully', data:newFeeling });
+     
+      res.status(200).json({ message: 'Upload saved successfully'});
     } 
     catch (error) {
-      res.status(500).json({ message: 'Upload saving feeling', error });
+      res.status(500).json({ message: 'Upload saving fail', error });
     }
   });

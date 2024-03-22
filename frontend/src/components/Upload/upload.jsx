@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import axios from 'axios';
 import Wrapper from '../../assets/wrappers/RegisterAndLoginPage'
 import { Link } from 'react-router-dom'
 
@@ -11,7 +11,22 @@ function Upload() {
   })
   // const nv = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit  = async () => {
+  try{
+
+    const response = await axios.post('http://localhost:5005/savenewupload', {
+        student_Id: '65ed25f82f5496d9eadb746e',
+        Question: state.Question,
+        Answer: state.Answer
+      });
+      
+      console.log(response.status);
+      alert('Assingment has been updated' );
+  
+      
+    } catch (error) {
+      console.error('Error uplaoding:', error);
+    }
     
       
   }
