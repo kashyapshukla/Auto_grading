@@ -26,7 +26,7 @@ function Upload() {
           </label>
           <textarea
             id='Question'
-            name='Email'
+            name='Question'
             className='form-input'
             defaultValue=''
             required
@@ -56,12 +56,12 @@ function Upload() {
             FeedBack
           </label>
           <textarea
-            id='Question'
-            name='Email'
+            id='Feedback'
+            name='Feedback'
             className='form-input'
             defaultValue=''
             required
-            onChange={(e) => setState({ ...state, Question: e.target.value })}
+            onChange={(e) => setState({ ...state, Feedback: e.target.value })}
           />
         </div>
       </form>
