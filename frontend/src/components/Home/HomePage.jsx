@@ -2,12 +2,15 @@ import React from 'react'
 import Wrapper from '../../assets/wrappers/HomePage'
 import homeImage from '../../assets/Images/homeImage.svg'
 import { Link } from 'react-router-dom'
+import Logo from '../Logo/Logo'
 
 function LoginPage() {
   return (
-    <Wrapper >
+    <Wrapper>
       <nav>
-        <h2 className='logo'>Code Grader</h2>
+        <nav>
+          <Logo />
+        </nav>
       </nav>
       <div className='container page'>
         <div className='info'>

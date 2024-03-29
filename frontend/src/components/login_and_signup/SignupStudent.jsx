@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Wrapper from '../../assets/wrappers/RegisterAndLoginPage'
 import { Link } from 'react-router-dom'
+import Logo from '../Logo/Logo'
 
 function SignupStudent() {
   const [state, setState] = useState({
@@ -15,7 +16,7 @@ function SignupStudent() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const { fname, lname, email, password } = state
-    console.log("vvvv",fname,email, password)
+    console.log('vvvv', fname, email, password)
 
     fetch('http://localhost:5005/register', {
       method: 'POST',
@@ -35,8 +36,8 @@ function SignupStudent() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.status)
-        if ( data.status=== 'ok') {
-          console.log("ok")
+        if (data.status === 'ok') {
+          console.log('ok')
           // setState({ ...state, isLoggedIn: true, userId: data.data._id })
           // nv(`/users_edit_or_new/${data.data._id}`);
         }
@@ -44,8 +45,9 @@ function SignupStudent() {
   }
 
   return (
-    <Wrapper >
+    <Wrapper>
       <form onSubmit={handleSubmit} className='form'>
+        <Logo />
         <h4 className='login'>Sign up</h4>
         <div className='form-row'>
           <label htmlFor='FIrst Name' className='form-label'>

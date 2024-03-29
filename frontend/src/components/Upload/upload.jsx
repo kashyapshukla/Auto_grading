@@ -32,32 +32,30 @@ function Upload() {
   }
 
   return (
-    
     <Wrapper>
-      <h4>Upload your Assignment</h4>
-    
-     
-      <form onSubmit={handleSubmit} className='form' >
-        <h4>Enter your Assignment</h4>
-        <label htmlFor='text' className='form-label'>
-            Question
+      <nav>
+        <h4>Assignment Grade</h4>
+      </nav>
+      <form onSubmit={handleSubmit} className='form'>
+        <h5>Submit your Assignment</h5>
+        <div className='form-row'>
+          <label htmlFor='text' className='form-label'>
+            Assignment
           </label>
-          <input
-            
-            type='text'
+          <textarea
             id='Question'
-            name='Email'
+            name='Question'
             className='form-input'
             defaultValue=''
             required
             onChange={(e) => setState({ ...state, Question: e.target.value })}
           />
-           <label htmlFor='text' className='form-label'>
-            Answer
+        </div>
+        <div className='form-row'>
+          <label htmlFor='text' className='form-label'>
+            Submission
           </label>
-          <input
-            
-            type='text'
+          <textarea
             id='Answer'
             name='Answer'
             className='form-input'
@@ -65,29 +63,41 @@ function Upload() {
             required
             onChange={(e) => setState({ ...state, Answer: e.target.value })}
           />
-           <button type='submit' className='btn'>
-          Submit
-        </button> 
-        
-      </form>
-      <form className='form'  style={{Width: 500}}>
-        <h4>Here is feed back</h4>
-        <label htmlFor='text' className='form-label' >
-           FeedBack
+        </div>
+        <div className='form-row'>
+          <button type='submit' className='btn'>
+            Submit
+          </button>
+        </div>
+        <div className='form-row'>
+          <label htmlFor='text' className='form-label'>
+            FeedBack
           </label>
-          <input
-            
-            type='text'
-            id='Question'
-            name='Email'
+          <textarea
+            id='Feedback'
+            name='Feedback'
             className='form-input'
             defaultValue=''
             required
-            onChange={(e) => setState({ ...state, Question: e.target.value })}
+            onChange={(e) => setState({ ...state, Feedback: e.target.value })}
           />
-          
-        
+        </div>
       </form>
+      {/* <form className='form' style={{ Width: 500 }}>
+        <h4>Here is feed back</h4>
+        <label htmlFor='text' className='form-label'>
+          FeedBack
+        </label>
+        <input
+          type='text'
+          id='Question'
+          name='Email'
+          className='form-input'
+          defaultValue=''
+          required
+          onChange={(e) => setState({ ...state, Question: e.target.value })}
+        />
+      </form> */}
     </Wrapper>
   )
 }

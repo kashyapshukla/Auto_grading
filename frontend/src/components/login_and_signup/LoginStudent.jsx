@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 
 import Wrapper from '../../assets/wrappers/RegisterAndLoginPage'
-import { Link,useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Upload from '../Upload/upload'
-
-
+import Logo from '../Logo/Logo'
 
 function LoginStudent() {
   const [state, setState] = useState({
@@ -13,8 +12,7 @@ function LoginStudent() {
     isLoggedIn: false,
     userId: '0',
   })
-  const nv = useNavigate();
-
+  const nv = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -37,18 +35,17 @@ function LoginStudent() {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 'ok') {
-         
-        
-          console.log("ok")
+          console.log('ok')
           setState({ ...state, isLoggedIn: true, userId: data.data._id })
-         nv(`/upload/`);
+          nv(`/upload/`)
         }
       })
   }
 
   return (
-    <Wrapper >
+    <Wrapper>
       <form onSubmit={handleSubmit} className='form'>
+        <Logo />
         <h4>Login</h4>
         <div className='form-row'>
           <label htmlFor='Email' className='form-label'>
