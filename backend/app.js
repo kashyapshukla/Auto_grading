@@ -81,14 +81,15 @@ app.post('/login-user', async (req, res) => {
 const Upload = mongoose.model('UploadInfo')
 
 app.post('/savenewupload', async (req, res) => {
-    const { student_Id,Question,Answer} = req.body;
+    const { student_id,question,answer} = req.body;
     try {
-        await Upload.create({
-            student_Id,
-            Question,
-            Answer,    
+       const upload= await Upload.create({
+            student_id:student_id,
+            question,
+            answer,    
           })
-  
+        
+          await upload.save(); 
      
       res.status(200).json({ message: 'Upload saved successfully'});
     } 

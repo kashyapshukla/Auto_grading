@@ -35,9 +35,9 @@ function LoginStudent() {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 'ok') {
-          console.log('ok')
+          console.log('ok', data.data._id )
           setState({ ...state, isLoggedIn: true, userId: data.data._id })
-          nv(`/upload/`)
+          nv(`/upload/${data.data._id}`)
         }
       })
   }

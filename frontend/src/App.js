@@ -23,7 +23,7 @@ const routes = createBrowserRouter([
         element: <LoginStudent />,
       },
       {
-        path: 'upload/',
+        path: 'upload/:user_Id',
         element: <Upload/>,
       },
     ],

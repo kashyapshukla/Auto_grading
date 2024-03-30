@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useParams } from "react-router-dom";
+
 import axios from 'axios';
 import Wrapper from '../../assets/wrappers/RegisterAndLoginPage'
 import { Link } from 'react-router-dom'
@@ -10,14 +12,17 @@ function Upload() {
     userId: '0',
   })
   // const nv = useNavigate();
-
+  const student_Id= useParams();
+  console.log(student_Id.user_Id);
   const handleSubmit  = async () => {
   try{
 
+    console.log(state.Question)
+
     const response = await axios.post('http://localhost:5005/savenewupload', {
-        student_Id: '65ed25f82f5496d9eadb746e',
-        Question: state.Question,
-        Answer: state.Answer
+        student_id:student_Id.user_Id,
+        question: state.Question,
+        answer: state.Answer
       });
       
       console.log(response.status);
