@@ -15,6 +15,7 @@ function LoginPage() {
       <div className='container page'>
         <div className='info'>
           <h1>
+
             Auto <span>code</span> grader
           </h1>
           <p>

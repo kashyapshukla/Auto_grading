@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.section`
-  min-height: 100vh;
-  display: grid;
+ 
+  display: grid; 
+  margin-top: 0;
+  nav{
+    margin:-5;
+    background: #38bec9;
+  }
   align-items: center;
   .logo {
     display: block;

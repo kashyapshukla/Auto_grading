@@ -3,9 +3,12 @@ import { useParams } from "react-router-dom";
 
 import axios from 'axios';
 import Wrapper from '../../assets/wrappers/RegisterAndLoginPage'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import {  signOut } from "firebase/auth";
+import {auth} from '../../firebase';
 function Upload() {
+
+  const navigate = useNavigate();
   const [state, setState] = useState({
     Question: '',
     Answer: '',
@@ -36,10 +39,28 @@ function Upload() {
       
   }
 
+  const handleLogout = () => {               
+    signOut(auth).then(() => {
+    // Sign-out successful.
+        navigate("/");
+        console.log("Signed out successfully")
+    }).catch((error) => {
+    // An error happened.
+    });
+}
+
   return (
     <Wrapper>
-      <nav>
+      <nav style={{
+        display:'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)'
+      }}>
         <h4>Assignment Grade</h4>
+      
+        <button onClick={handleLogout}>
+                        Logout
+                    </button>
+        
       </nav>
       <form onSubmit={handleSubmit} className='form'>
         <h5>Submit your Assignment</h5>
@@ -74,7 +95,11 @@ function Upload() {
             Submit
           </button>
         </div>
-        <div className='form-row'>
+       
+      </form>
+
+      <form className='form'>
+      <div className='form-row'>
           <label htmlFor='text' className='form-label'>
             FeedBack
           </label>
@@ -87,7 +112,8 @@ function Upload() {
             onChange={(e) => setState({ ...state, Feedback: e.target.value })}
           />
         </div>
-      </form>
+
+        </form> 
       {/* <form className='form' style={{ Width: 500 }}>
         <h4>Here is feed back</h4>
         <label htmlFor='text' className='form-label'>
