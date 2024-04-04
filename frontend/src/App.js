@@ -1,10 +1,12 @@
 import './App.css'
-import LoginPage from '../src/components/Home/HomePage'
+import LoginPage from './pages/Home/HomePage'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import LoginStudent from './components/login_and_signup/LoginStudent'
-import ErrorPage from './components/Error/ErrorPage'
-import SignupStudent from './components/login_and_signup/SignupStudent'
-import Upload from './components/Upload/upload'
+import LoginStudent from './pages/login_and_signup/LoginStudent'
+import ErrorPage from './pages/Error/ErrorPage'
+import SignupStudent from './pages/login_and_signup/SignupStudent'
+import Upload from './pages/Upload/upload'
+import Profile from './pages/Profile/Profile'
+import DashboardLayout from './pages/Dashboard/DashboardLayout'
 const routes = createBrowserRouter([
   {
     path: '/',
@@ -23,8 +25,18 @@ const routes = createBrowserRouter([
         element: <LoginStudent />,
       },
       {
-        path: 'upload/',
-        element: <Upload/>,
+        path: 'dashboard',
+        element: <DashboardLayout />,
+        children: [
+          {
+            index: true,
+            element: <Profile />,
+          },
+          {
+            path: 'upload/',
+            element: <Upload />,
+          },
+        ],
       },
     ],
   },

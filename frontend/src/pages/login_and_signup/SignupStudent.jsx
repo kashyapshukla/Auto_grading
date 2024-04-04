@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Wrapper from '../../assets/wrappers/RegisterAndLoginPage'
-import { Link } from 'react-router-dom'
-import Logo from '../Logo/Logo'
+import { Link, useNavigate } from 'react-router-dom'
+import Logo from '../../components/Logo'
 
 function SignupStudent() {
   const [state, setState] = useState({
@@ -11,7 +11,7 @@ function SignupStudent() {
     password: '',
     isLoggedIn: false,
   })
-  // const nv = useNavigate();
+  const nv = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -40,6 +40,7 @@ function SignupStudent() {
           console.log('ok')
           // setState({ ...state, isLoggedIn: true, userId: data.data._id })
           // nv(`/users_edit_or_new/${data.data._id}`);
+          nv(`/log-in/`)
         }
       })
   }

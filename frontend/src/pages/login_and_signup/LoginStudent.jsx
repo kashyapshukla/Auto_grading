@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 
 import Wrapper from '../../assets/wrappers/RegisterAndLoginPage'
 import { Link, useNavigate } from 'react-router-dom'
-import Upload from '../Upload/upload'
-import Logo from '../Logo/Logo'
+import Logo from '../../components/Logo'
 
 function LoginStudent() {
   const [state, setState] = useState({
@@ -37,7 +36,7 @@ function LoginStudent() {
         if (data.status === 'ok') {
           console.log('ok')
           setState({ ...state, isLoggedIn: true, userId: data.data._id })
-          nv(`/upload/`)
+          nv('/dashboard/')
         }
       })
   }

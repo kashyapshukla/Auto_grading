@@ -2,12 +2,16 @@ import styled from 'styled-components'
 
 const Wrapper = styled.section`
   border-radius: var(--border-radius);
-  align-items: center;
   width: 100%;
   background: var(--background-secondary-color);
   padding: 3rem 2rem 4rem;
   .form-title {
     margin-bottom: 2rem;
+  }
+  h4 {
+    text-align: center;
+    margin-bottom: 1.38rem;
+    margin-top: 2.38rem;
   }
   .form {
     margin: 0;
@@ -24,45 +28,11 @@ const Wrapper = styled.section`
     display: grid;
     row-gap: 1rem;
   }
-  .form-input,
-  .form-textarea,
-  .form-select {
-    width: 100%;
-    height: 127px;
-    padding: 0.375rem 0.75rem;
-    border-radius: var(--border-radius);
-    background: var(--background-color);
-    border: 1px solid var(--grey-300);
-    color: var(--text-color);
-  }
   .form-btn {
     align-self: end;
     margin-top: 1rem;
     display: grid;
     place-items: center;
-  }
-  h4 {
-    text-align: center;
-    margin-bottom: 1.38rem;
-    margin-top: 2.38rem;
-  }
-  h5 {
-    text-align: center;
-    margin-bottom: 1.38rem;
-  }
-  p {
-    margin-top: 1rem;
-    text-align: center;
-    line-height: 1.5;
-  }
-  .btn {
-    margin-top: 1rem;
-    width: 100%;
-  }
-  .member-btn {
-    color: var(--primary-500);
-    letter-spacing: var(--letter-spacing);
-    margin-left: 0.25rem;
   }
   @media (min-width: 992px) {
     .form-center {
@@ -77,4 +47,5 @@ const Wrapper = styled.section`
     }
   }
 `
+
 export default Wrapper

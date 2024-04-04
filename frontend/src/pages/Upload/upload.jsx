@@ -15,11 +15,8 @@ function Upload() {
 
   return (
     <Wrapper>
-      <nav>
-        <h4>Assignment Grade</h4>
-      </nav>
       <form onSubmit={handleSubmit} className='form'>
-        <h5>Submit your Assignment</h5>
+        <h5>Assignment Grade</h5>
         <div className='form-row'>
           <label htmlFor='text' className='form-label'>
             Assignment
