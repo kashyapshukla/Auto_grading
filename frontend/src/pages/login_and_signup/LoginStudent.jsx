@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
-import Wrapper from '../../assets/wrappers/RegisterAndLoginPage'
-import { Link } from 'react-router-dom'
-import Logo from '../Logo/Logo'
 
-function SignupStudent() {
+import Wrapper from '../../assets/wrappers/RegisterAndLoginPage'
+import { Link, useNavigate } from 'react-router-dom'
+import Logo from '../../components/Logo'
+
+function LoginStudent() {
   const [state, setState] = useState({
-    fname: '',
-    lname: '',
     email: '',
     password: '',
     isLoggedIn: false,
+    userId: '0',
   })
-  // const nv = useNavigate();
+  const nv = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const { fname, lname, email, password } = state
-    console.log('vvvv', fname, email, password)
+    const { email, password } = state
+    console.log(email, password)
 
-    fetch('http://localhost:5005/register', {
+    fetch('http://localhost:5005/login-user', {
       method: 'POST',
       crossDomain: true,
       headers: {
@@ -27,19 +27,16 @@ function SignupStudent() {
         'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({
-        fname,
-        lname,
         email,
         password,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.status)
         if (data.status === 'ok') {
           console.log('ok')
-          // setState({ ...state, isLoggedIn: true, userId: data.data._id })
-          // nv(`/users_edit_or_new/${data.data._id}`);
+          setState({ ...state, isLoggedIn: true, userId: data.data._id })
+          nv('/dashboard/')
         }
       })
   }
@@ -48,35 +45,7 @@ function SignupStudent() {
     <Wrapper>
       <form onSubmit={handleSubmit} className='form'>
         <Logo />
-        <h4 className='login'>Sign up</h4>
-        <div className='form-row'>
-          <label htmlFor='FIrst Name' className='form-label'>
-            First Name
-          </label>
-          <input
-            type='text'
-            id='FIrst Name'
-            name='FIrst Name'
-            className='form-input'
-            defaultValue=''
-            required
-            onChange={(e) => setState({ ...state, fname: e.target.value })}
-          />
-        </div>
-        <div className='form-row'>
-          <label htmlFor='Last Name' className='form-label'>
-            Last Name
-          </label>
-          <input
-            type='text'
-            id='Last Name'
-            name='Last Name'
-            className='form-input'
-            defaultValue=''
-            required
-            onChange={(e) => setState({ ...state, lname: e.target.value })}
-          />
-        </div>
+        <h4>Login</h4>
         <div className='form-row'>
           <label htmlFor='Email' className='form-label'>
             Email
@@ -106,15 +75,13 @@ function SignupStudent() {
             onChange={(e) => setState({ ...state, password: e.target.value })}
           />
         </div>
-
         <button type='submit' className='btn'>
           Submit
         </button>
-
         <p>
-          Already a member?
-          <Link to='/log-in' className='member-btn'>
-            Login
+          Not a member yet?
+          <Link to='/sign-up' className='member-btn'>
+            Sign Up
           </Link>
         </p>
       </form>
@@ -122,4 +89,4 @@ function SignupStudent() {
   )
 }
 
-export default SignupStudent
+export default LoginStudent

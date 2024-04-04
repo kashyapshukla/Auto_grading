@@ -1,25 +1,24 @@
 import React, { useState } from 'react'
-
 import Wrapper from '../../assets/wrappers/RegisterAndLoginPage'
 import { Link, useNavigate } from 'react-router-dom'
-import Upload from '../Upload/upload'
-import Logo from '../Logo/Logo'
+import Logo from '../../components/Logo'
 
-function LoginStudent() {
+function SignupStudent() {
   const [state, setState] = useState({
+    fname: '',
+    lname: '',
     email: '',
     password: '',
     isLoggedIn: false,
-    userId: '0',
   })
   const nv = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const { email, password } = state
-    console.log(email, password)
+    const { fname, lname, email, password } = state
+    console.log('vvvv', fname, email, password)
 
-    fetch('http://localhost:5005/login-user', {
+    fetch('http://localhost:5005/register', {
       method: 'POST',
       crossDomain: true,
       headers: {
@@ -28,16 +27,20 @@ function LoginStudent() {
         'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({
+        fname,
+        lname,
         email,
         password,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data.status)
         if (data.status === 'ok') {
-          console.log('ok', data.data._id )
-          setState({ ...state, isLoggedIn: true, userId: data.data._id })
-          nv(`/upload/${data.data._id}`)
+          console.log('ok')
+          // setState({ ...state, isLoggedIn: true, userId: data.data._id })
+          // nv(`/users_edit_or_new/${data.data._id}`);
+          nv(`/log-in/`)
         }
       })
   }
@@ -46,7 +49,35 @@ function LoginStudent() {
     <Wrapper>
       <form onSubmit={handleSubmit} className='form'>
         <Logo />
-        <h4>Login</h4>
+        <h4 className='login'>Sign up</h4>
+        <div className='form-row'>
+          <label htmlFor='FIrst Name' className='form-label'>
+            First Name
+          </label>
+          <input
+            type='text'
+            id='FIrst Name'
+            name='FIrst Name'
+            className='form-input'
+            defaultValue=''
+            required
+            onChange={(e) => setState({ ...state, fname: e.target.value })}
+          />
+        </div>
+        <div className='form-row'>
+          <label htmlFor='Last Name' className='form-label'>
+            Last Name
+          </label>
+          <input
+            type='text'
+            id='Last Name'
+            name='Last Name'
+            className='form-input'
+            defaultValue=''
+            required
+            onChange={(e) => setState({ ...state, lname: e.target.value })}
+          />
+        </div>
         <div className='form-row'>
           <label htmlFor='Email' className='form-label'>
             Email
@@ -76,13 +107,15 @@ function LoginStudent() {
             onChange={(e) => setState({ ...state, password: e.target.value })}
           />
         </div>
+
         <button type='submit' className='btn'>
           Submit
         </button>
+
         <p>
-          Not a member yet?
-          <Link to='/sign-up' className='member-btn'>
-            Sign Up
+          Already a member?
+          <Link to='/log-in' className='member-btn'>
+            Login
           </Link>
         </p>
       </form>
@@ -90,4 +123,4 @@ function LoginStudent() {
   )
 }
 
-export default LoginStudent
+export default SignupStudent

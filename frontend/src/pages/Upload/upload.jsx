@@ -38,11 +38,8 @@ function Upload() {
 
   return (
     <Wrapper>
-      <nav>
-        <h4>Assignment Grade</h4>
-      </nav>
       <form onSubmit={handleSubmit} className='form'>
-        <h5>Submit your Assignment</h5>
+        <h5>Assignment Grade</h5>
         <div className='form-row'>
           <label htmlFor='text' className='form-label'>
             Assignment
@@ -74,7 +71,10 @@ function Upload() {
             Submit
           </button>
         </div>
-        <div className='form-row'>
+       
+      </form>
+
+      <div className='form-row'>
           <label htmlFor='text' className='form-label'>
             FeedBack
           </label>
@@ -87,7 +87,6 @@ function Upload() {
             onChange={(e) => setState({ ...state, Feedback: e.target.value })}
           />
         </div>
-      </form>
       {/* <form className='form' style={{ Width: 500 }}>
         <h4>Here is feed back</h4>
         <label htmlFor='text' className='form-label'>

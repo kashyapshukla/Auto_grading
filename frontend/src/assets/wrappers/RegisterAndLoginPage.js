@@ -10,7 +10,7 @@ const Wrapper = styled.section`
     margin-bottom: 1.38rem;
   }
   .form {
-    max-width: 400px;
+    max-width: 570px;
     border-top: 5px solid var(--primary-500);
   }
   h4 {

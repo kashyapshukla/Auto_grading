@@ -2,7 +2,7 @@ import React from 'react'
 import Wrapper from '../../assets/wrappers/HomePage'
 import homeImage from '../../assets/Images/homeImage.svg'
 import { Link } from 'react-router-dom'
-import Logo from '../Logo/Logo'
+import Logo from '../../components/Logo'
 
 function LoginPage() {
   return (

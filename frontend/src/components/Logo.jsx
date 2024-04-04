@@ -1,4 +1,5 @@
-import logo from '../../assets/Images/logo-png (6).jpg'
+import logo from '../assets/Images/logo-transparent-png (1).png'
+
 const Logo = () => {
   return <img src={logo} alt='cg' className='logo' />
 }
