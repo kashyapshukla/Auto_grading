@@ -1,26 +1,24 @@
-const mongoose= require("mongoose");
+import mongoose from 'mongoose'
 
-const UploadDetailsSchema= new mongoose.Schema(
-    {
-        
-        student_id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'StudentInfo',
-      
-          },
-        question:{
-            type:String,
-        },
-        answer: {
-            type:String,
-            
-        },
-  
-      
+const UploadDetailsSchema = new mongoose.Schema(
+  {
+    student_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'StudentInfo',
     },
-    {
-        collection:"UploadInfo",
-    }
-);
+    question: {
+      type: String,
+    },
+    answer: {
+      type: String,
+    },
+    feedback: {
+      type: String,
+    },
+  },
+  {
+    collection: 'UploadInfo',
+  }
+)
 
-mongoose.model("UploadInfo" , UploadDetailsSchema);
+export default mongoose.model('UploadInfo', UploadDetailsSchema)
