@@ -29,7 +29,7 @@ const routes = createBrowserRouter([
         element: <Upload/>,
       },
       {
-        path: 'dashboard',
+        path: 'dashboard/:user_Id',
         element: <DashboardLayout />,
         children: [
           {

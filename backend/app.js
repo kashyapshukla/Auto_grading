@@ -7,6 +7,8 @@ import cors from 'cors'
 import StudentInfo from './student.js'
 import UploadInfo from './upload.js'
 import { log } from 'console'
+import multer from 'multer'
+import path from 'path'
 
 const app = express()
 app.use(express.json())
@@ -31,6 +33,23 @@ app.listen(5005, () => {
   console.log('server is runing')
 })
 
+const storage= multer.diskStorage({
+
+  destination: (req, file, cd) =>{
+    cd(null, 'images')
+  },
+  filename : (req, file,cd)=>{
+    console.log(file)
+    cd(null, file.originalname)
+  }
+
+})
+const upload=multer({storage: storage})
+
+app.post("/image", upload.single("Image"), (req, res) =>{
+  res.send("image uploaded");
+
+});
 app.post('/post', async (req, res) => {
   console.log(req.body)
   const { data } = req.body
@@ -41,6 +60,30 @@ app.post('/post', async (req, res) => {
   } catch (error) {
     res.send((status = 'error'))
   }
+})
+
+app.post('/update-profile',async(req,res) =>{
+  const { student_id,fname, lname, email, password } = req.body
+  const encryptedPassword = await bcrypt.hash(password, 10)
+  try{
+    const student = await StudentInfo.findById(student_id);
+    if(student){
+      student.fname=fname;
+      student.lname=lname;
+      student.email=email;
+      student.password=encryptedPassword;
+     
+      await student.save();
+     
+      res.send({ status: 'ok' })
+     
+    }
+    console.log("saved")
+   
+  }catch{
+    res.send({ status: 'error' })
+  }
+
 })
 
 app.post('/register', async (req, res) => {
@@ -198,11 +241,7 @@ app.post('/savenewupload', async (req, res) => {
     })
     await upload.save()
     // res = res.json({ status: 'ok', data: modelResponse })
-    console.log(
-      res
-        .status(200)
-        .json({ message: 'saved successfully', data: modelResponse })
-    )
+   
     res.status(200).json({ message: 'saved successfully', data: modelResponse })
   } catch (error) {
     res.status(500).json({ message: 'Upload saving fail', error })

@@ -36,7 +36,7 @@ function LoginStudent() {
         if (data.status === 'ok') {
           console.log('ok')
           setState({ ...state, isLoggedIn: true, userId: data.data._id })
-          nv('/dashboard/')
+          nv(`/dashboard/${ data.data._id}`)
         }
       })
   }
