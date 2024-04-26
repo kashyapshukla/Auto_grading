@@ -45,9 +45,9 @@ app.listen(5300, () => {
 const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use(express.static(path.resolve(__dirname, './public')))
 cloudinary.config({
-  cloud_name: 'dz8o73qdo',
-  api_key: '189894217651895',
-  api_secret: 'PbhJTtLvwBtkej86kOCV37xnTkE',
+  cloud_name: '',
+  api_key: '',
+  api_secret:'',
 })
 /**
  * Login, Registration and Logout API
