@@ -34,7 +34,7 @@ By combining cutting-edge technology with practical use cases like teaching assi
   <tr>
     <td>
       <img src="https://github.com/kashyapshukla/Auto_grading/blob/main/frontendcg/src/assets/Images/wli20.jpg" alt="Mentor Photo"  width=200px height=200px>
-      <p> Wenjia Li (Mentor)</p>
+      <p> Wenjia Li</p>
     </td>
     <td>
       <img src="https://github.com/kashyapshukla/Auto_grading/blob/main/frontendcg/src/assets/Images/1713195651452.jpeg" alt="Teammate 1 Photo" width=200px height=200px>
