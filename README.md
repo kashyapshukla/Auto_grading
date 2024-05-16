@@ -1,5 +1,5 @@
 
-# GradeMaster: AI-Powered Assignment Grading System - New York Institute of Technology Capstone Project
+# Code Grader: AI-Powered Assignment Grading System - New York Institute of Technology Capstone Project
 
 <p align="left">
  <img width="200" height="180" src="https://github.com/kashyapshukla/Auto_grading/blob/main/frontendcg/src/assets/Images/logo-png%20(6).jpg">
@@ -7,9 +7,9 @@
 
 
 # Project Description:
-The Grademaster project aims to streamline the assignment grading process in educational settings by leveraging advanced language models and automation techniques. Unlike traditional grading methods that are often time-consuming and prone to errors, Grademaster offers an innovative solution that enhances efficiency and accuracy. By integrating Language Model models like LLM with the Ollama API, Grademaster automates the grading process, significantly reducing grading time by up to 60%. This automation not only saves valuable time for educators but also ensures consistent and objective grading standards across assignments.
+The Code Grader project aims to streamline the assignment grading process in educational settings by leveraging advanced language models and automation techniques. Unlike traditional grading methods that are often time-consuming and prone to errors, Grademaster offers an innovative solution that enhances efficiency and accuracy. By integrating Language Model models like LLM with the Ollama API, Grademaster automates the grading process, significantly reducing grading time by up to 60%. This automation not only saves valuable time for educators but also ensures consistent and objective grading standards across assignments.
 
-Additionally, Grademaster features a secure authentication system powered by Google authentication, ensuring access security with a high user satisfaction rate of 95%. This authentication mechanism provides peace of mind to both educators and students, guaranteeing that only authorized users can access grading materials and feedback. Furthermore, Grademaster offers a user-friendly interface built with React.js and Express.js, resulting in a 40% increase in user engagement and a 20% improvement in system performance. This intuitive interface simplifies the grading process for teaching assistants and graders, allowing them to efficiently navigate through assignments, provide feedback, and track student progress.
+Additionally, Code Grader features a secure authentication system powered by Google authentication, ensuring access security with a high user satisfaction rate of 95%. This authentication mechanism provides peace of mind to both educators and students, guaranteeing that only authorized users can access grading materials and feedback. Furthermore, Grademaster offers a user-friendly interface built with React.js and Express.js, resulting in a 40% increase in user engagement and a 20% improvement in system performance. This intuitive interface simplifies the grading process for teaching assistants and graders, allowing them to efficiently navigate through assignments, provide feedback, and track student progress.
 
 By combining cutting-edge technology with practical use cases like teaching assistants and graders, Grademaster revolutionizes the assignment grading experience, making it more efficient, accurate, and user-friendly. With Grademaster, educators can focus on providing valuable feedback and support to students, ultimately enhancing the learning experience for all parties involved.
 ***
